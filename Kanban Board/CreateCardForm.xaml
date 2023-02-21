@@ -1,0 +1,22 @@
+﻿<Window x:Class="Kanban_Board.CreateCardForm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Kanban_Board"
+        mc:Ignorable="d"
+        Title="CreateCardForm" Height="373" Width="360" ResizeMode="NoResize" SizeToContent="Width" HorizontalAlignment="Left">
+    <Grid Margin="0,0,0,18" HorizontalAlignment="Center">
+        <Label Content="Titel:" HorizontalAlignment="Left" Margin="52,32,0,0" VerticalAlignment="Top"/>
+        <Label Content="Beschreibung:" HorizontalAlignment="Left" Margin="10,63,0,0" VerticalAlignment="Top"/>
+        <Label Content="Ersteller:" HorizontalAlignment="Left" Margin="32,150,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.706,-0.331"/>
+        <Label Content="Aktivität:" HorizontalAlignment="Left" Margin="24,181,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.706,-0.331"/>
+        <TextBox x:Name="txtBoxTitle" HorizontalAlignment="Left" Height="23" Margin="92,35,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="106" TextChanged="TextBox_TextChanged" AutomationProperties.Name="txtBoxTitle"/>
+        <TextBox x:Name="txtBoxDescription" HorizontalAlignment="Left" Height="75" Margin="92,76,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="106" TextChanged="TextBox_TextChanged" AutomationProperties.Name="txtBoxDescription"/>
+        <TextBox x:Name="txtBoxModifier" HorizontalAlignment="Left" Height="23" Margin="92,156,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="106" TextChanged="TextBox_TextChanged" AutomationProperties.Name="txtBoxModifier"/>
+        <TextBox x:Name="txtBoxActivity" HorizontalAlignment="Left" Height="23" Margin="92,184,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="106" TextChanged="TextBox_TextChanged" AutomationProperties.Name="txtBoxActivity"/>
+        <Button Content="Erstellen" HorizontalAlignment="Left" Margin="92,265,0,0" VerticalAlignment="Top" Height="19" Click="Button_Click"/>
+        <Button Content="Button" HorizontalAlignment="Left" Height="0" Margin="32,274,0,0" VerticalAlignment="Top" Width="0"/>
+
+    </Grid>
+</Window>

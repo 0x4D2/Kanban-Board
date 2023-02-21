@@ -7,9 +7,7 @@
         mc:Ignorable="d"
         Title="Kanban" Height="450" Width="800" WindowStartupLocation="CenterScreen">
     <Grid >
-        <Grid.Background>
-            <ImageBrush ImageSource="C:\Users\m.guengoer\Documents\background.jpg"/>
-        </Grid.Background>
+
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="4">
@@ -33,9 +31,7 @@
 
             </ColumnDefinition>
 
-            <ColumnDefinition Width="20">
-
-            </ColumnDefinition>
+            <ColumnDefinition Width="20"></ColumnDefinition>
 
 
 
@@ -43,39 +39,42 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="20"></RowDefinition>
             <RowDefinition Height="22"></RowDefinition>
-            <RowDefinition></RowDefinition>
+            <RowDefinition Height="7*"></RowDefinition>
+            <RowDefinition Height="86*"/>
 
             <RowDefinition Height="20"></RowDefinition>
         </Grid.RowDefinitions>
-
-        <Label Grid.Column="2" Content="TicketName" HorizontalAlignment="Left" Margin="0,-3,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="11" Foreground="White"/>
-        <ListBox x:Name="ToDoListBox" Grid.Column="2"  Grid.Row="1" Margin="0,21,0,18" Grid.RowSpan="3" Background="Transparent" Height="375" BorderThickness="0,1,1,1" SelectionChanged="ListBox_SelectionChanged" ItemStringFormat="" RenderTransformOrigin="0,0" OverridesDefaultStyle="True" SelectedIndex="1" IsSynchronizedWithCurrentItem="True" Cursor="AppStarting" >
-            <ListBox.ItemsPanel>
-                <ItemsPanelTemplate/>
-            </ListBox.ItemsPanel>
-
-            <Label Content="To Do" Margin="0,11,0,0" Grid.Row="1" Grid.RowSpan="2" Height="auto" Grid.Column="1" FontWeight="Bold" FontSize="18" Width="auto" Background="{x:Null}" Foreground="White" HorizontalAlignment="Left" >
-                <Label.OpacityMask>
-                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <GradientStop Color="Black"/>
-                        <GradientStop Color="#FF020202" Offset="1"/>
-                    </LinearGradientBrush>
-                </Label.OpacityMask>
-            </Label>
-            <RibbonButton/>
-        </ListBox>
-
-        <ListBox Grid.Column="3"  Grid.Row="1" Margin="10,21,0,0" Grid.RowSpan="2" Background="Transparent" Grid.ColumnSpan="2" >
-            <Label Content="In Progress" Margin="0,11,0,0" Grid.Row="1" Grid.RowSpan="2" Height="35" Grid.Column="1" FontWeight="Bold" FontSize="18" Width="auto" Foreground="White" />
-        </ListBox>
-        <ListBox Grid.Column="6"  Grid.Row="1" Margin="0,20,10,1" Background="Transparent" Grid.RowSpan="2" Grid.ColumnSpan="2" >
-            <Label Content="Testbar" Margin="0,11,0,0" Grid.Row="1" Grid.RowSpan="2" Height="31" Grid.Column="1" FontWeight="Bold" FontSize="18" Width="auto" Foreground="White" />
-        </ListBox>
-        <ListBox Grid.Column="8"  Grid.Row="1" Background="Transparent" Margin="0,21,0,1" Grid.RowSpan="2" >
-            <Label Content="Done" Margin="0,11,0,0" Grid.Row="1" Grid.RowSpan="2" Height="31" Grid.Column="1" FontWeight="Bold" FontSize="18" Width="auto" Foreground="White" />
-        </ListBox>
+        <Label Grid.Column="2" Content="Label" HorizontalAlignment="Left" Margin="45,17,0,0" Grid.Row="1" VerticalAlignment="Top"/>
+        <Label x:Name="To_Do" Grid.Column="2" Content="To Do" HorizontalAlignment="Left" Grid.Row="2" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Button x:Name="btnCreateCard" Grid.Column="8" Content="Anlegen" HorizontalAlignment="Left" Margin="26,283,0,0" Grid.Row="3" VerticalAlignment="Top" Click="Button_Click" Width="56" AutomationProperties.Name="btnOpenFormular" FontSize="10" Height="18"/>
+        <Label Grid.Column="3" Content="In Progress" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="2" VerticalAlignment="Center" Grid.ColumnSpan="2" FontWeight="Bold"/>
+        <Label Grid.Column="6" Content="Testbar" HorizontalAlignment="Left" Grid.Row="2" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Label Grid.Column="8" Content="Done" HorizontalAlignment="Left" Grid.Row="2" VerticalAlignment="Top" FontWeight="Bold"/>
 
 
+        <ListBox x:Name="LB1" Grid.Column="2" Grid.Row="2" d:ItemsSource="{d:SampleData ItemCount=5}" HorizontalAlignment="Center"  Margin="0,26,0,79" Width="182" Grid.RowSpan="2" PreviewMouseLeftButtonDown="LB1_PreviewMouseLeftButtonDown"
+                 AllowDrop="True" Drop="LB1_Drop"
+                 MouseMove="LB1_MouseMove" AutomationProperties.Name="LB1" SelectionChanged="LB1_SelectionChanged" DragLeave="LB1_DragLeave" DragOver="LB1_DragOver" UseLayoutRounding="True" RenderOptions.EdgeMode="Aliased" />
+
+
+        <ListBox x:Name="LB2" Grid.Column="4" Grid.Row="2" d:ItemsSource="{d:SampleData ItemCount=5}" HorizontalAlignment="Center" Margin="0,28,0,78" Width="182" RenderTransformOrigin="0.615,0.497"  PreviewMouseLeftButtonDown="LB2_PreviewMouseLeftButtonDown"
+                 AllowDrop="True" Drop="LB2_Drop"
+                 MouseMove="LB2_MouseMove" AutomationProperties.Name="LB2" SelectionChanged="LB2_SelectionChanged" Grid.RowSpan="2" DragLeave="LB2_DragLeave" DragOver="LB2_DragOver" UseLayoutRounding="True" RenderOptions.EdgeMode="Aliased"/>
+
+        <ListBox x:Name="LB3" Grid.Row="2" d:ItemsSource="{d:SampleData ItemCount=5}" HorizontalAlignment="Center" Margin="0,28,0,77" Width="182" PreviewMouseLeftButtonDown="LB3_PreviewMouseLeftButtonDown"
+                 AllowDrop="True" Drop="LB3_Drop"
+                 MouseMove="LB3_MouseMove" AutomationProperties.Name="LB3" SelectionChanged="LB3_SelectionChanged" Grid.Column="6" Grid.RowSpan="2" DragLeave="LB3_DragLeave" DragOver="LB3_DragOver" UseLayoutRounding="True" RenderOptions.EdgeMode="Aliased" />
+
+        <ListBox x:Name="LB4" Grid.Column="8" Grid.Row="3" d:ItemsSource="{d:SampleData ItemCount=5}" HorizontalAlignment="Center" Margin="0,1,0,76" Width="182"  PreviewMouseLeftButtonDown="LB4_PreviewMouseLeftButtonDown"
+                 AllowDrop="True" Drop="LB4_Drop"
+                 MouseMove="LB4_MouseMove" AutomationProperties.Name="LB2" SelectionChanged="LB4_SelectionChanged" DragLeave="LB4_DragLeave" DragOver="LB4_DragOver" UseLayoutRounding="True" RenderOptions.EdgeMode="Aliased"/>
+        <Button x:Name="btnDoneListBoxItemRight"  Grid.Column="8" Content="Archivieren" HorizontalAlignment="Left" Margin="100,283,0,0" Grid.Row="3" VerticalAlignment="Top" Click="btnDoneListBoxItemRight_Click" FontSize="10" RenderTransformOrigin="0.151,0.311" Width="56"/>
+        <Label Grid.Column="2" Content="Titel:" HorizontalAlignment="Left" Margin="10,245,0,0" Grid.Row="3" VerticalAlignment="Top" Width="87"/>
+        <TextBox x:Name="txtBoxTitle" Grid.Column="2" HorizontalAlignment="Center" Margin="0,271,0,0" Grid.Row="3" TextWrapping="Wrap" VerticalAlignment="Top" Width="127" AutomationProperties.Name="txtBoxTitle" RenderTransformOrigin="0.4,1.338" Height="42"/>
+        <Label Grid.Column="4" Content="Beschreibung:" HorizontalAlignment="Left" Margin="4,245,0,0" Grid.Row="3" VerticalAlignment="Top" Width="87"/>
+        <TextBox x:Name="txtBoxDescription" Grid.Column="4" HorizontalAlignment="Left" Margin="22,271,0,0" Grid.Row="3" TextWrapping="Wrap" VerticalAlignment="Top" Width="146" Height="42" AutomationProperties.Name="txtBoxDescription"/>
+        <Label Grid.Column="6" Content="Erstellt:" HorizontalAlignment="Left" Margin="10,245,0,0" Grid.Row="3" VerticalAlignment="Top" Width="87"/>
+        <TextBox x:Name="txtBoxCreateTimestamp" Grid.Column="6" HorizontalAlignment="Center" Margin="0,271,0,0" Grid.Row="3" TextWrapping="Wrap" VerticalAlignment="Top" Width="146" Height="42" AutomationProperties.Name="txtBoxDescription"/>
 
 
     </Grid>

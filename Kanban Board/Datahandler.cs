@@ -8,7 +8,7 @@ namespace Kanban_Board
 {
     public class Datahandler
     {
-        public  ResultObject PrepareCard(Card card)
+        public static ResultObject PrepareCard(Card card)
         {
             ResultObject result = new ResultObject();
 

@@ -15,11 +15,11 @@ namespace Kanban_Board
         {
             get
             {
-                if (m_Conn.State == null)
+                if (m_Conn == null)
                 {
                     m_Conn = GetMySqlConnection();
                 }
-                e
+                
                 return m_Conn;
             }
         }

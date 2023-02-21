@@ -9,7 +9,7 @@ using System.Windows.Input;
 
 namespace Kanban_Board
 {
-    public class CardApi
+    public class CardRepo
     {
         public bool rowversionExists(int cardId, string rowversion)
         {
@@ -53,16 +53,18 @@ namespace Kanban_Board
             }
 
         }
-        public ResultObject UpdateCard(Card card, int newStatusID) { 
+        public ResultObject UpdateCard(Card card, int newStatusID, bool isArchived) { 
 
             ResultObject result = new ResultObject();
 
             try
             {
-                string updateQuery = "Update Cards Set Status_ID = @Status_ID Where Card_Id = @Card_Id";
+               
+                string updateQuery = "Update Cards Set IsArchived=@isArchived, Status_ID = @Status_ID Where Card_Id = @Card_Id";
                 MySqlCommand query = new MySqlCommand(updateQuery, DbConnections.Con);
                 query.Parameters.Add(new MySqlParameter("@Status_ID", newStatusID));
                 query.Parameters.Add(new MySqlParameter("@Card_Id", card.cardId));
+                query.Parameters.Add(new MySqlParameter("@isArchived", isArchived));
                 query.ExecuteNonQuery();
 
                 card.statusID = newStatusID; 
@@ -176,6 +178,7 @@ namespace Kanban_Board
                                     FROM cards c
                                     LEFT JOIN status s
                                     ON c.Status_ID = s.Status_ID
+                                    Where c.isArchived = false
                                     ORDER BY c.Card_ID";
 
                 MySqlCommand query = new MySqlCommand(selectQuery,DbConnections.Con);
