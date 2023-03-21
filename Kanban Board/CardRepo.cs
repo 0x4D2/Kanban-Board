@@ -187,6 +187,7 @@ namespace Kanban_Board
 
                 if (reader.HasRows)
                 {
+
                     while (reader.Read())
                     {
                         Card card = new Card();

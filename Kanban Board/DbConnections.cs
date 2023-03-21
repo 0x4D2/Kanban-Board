@@ -28,7 +28,7 @@ namespace Kanban_Board
             try
             {
                 MySqlConnection con = new MySqlConnection();
-                con.ConnectionString = "Server=localhost;Port=3306;Database=kanban;Uid=kanban_user_;Pwd=kanban_user_;Convert Zero Datetime=True";
+                con.ConnectionString = "Server=localhost;Port=3306;Database=kanban;Uid=MyUser;Pwd=Password;Convert Zero Datetime=True";
                 con.Open();
                 return con;
             }
